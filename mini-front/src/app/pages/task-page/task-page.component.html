@@ -1,0 +1,8 @@
+<input type="text" placeholder="Nouvelle tâche" [(ngModel)]="newTaskTitle">
+<button (click)="add()">Ajouter</button>
+
+<li *ngFor="let item of get()" class="task">
+    <p [class.completed]="item.completed">{{item.title}}</p>
+    <button (click)="delete(item)">Supprimer</button>
+    <button (click)="toggle(item)">{{ item.completed ? 'Annuler' : 'Compléter' }}</button>
+</li>

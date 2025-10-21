@@ -1,0 +1,10 @@
+.task {
+    display: flex;
+    gap: 20px;
+    padding: 10px 20px;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: green;
+}
