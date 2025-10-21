@@ -1,0 +1,26 @@
+<h2>Ajouter un utilisateur</h2>
+
+<form [formGroup]="form" (ngSubmit)="save()" class="form">
+  <div class="field">
+    <label>Prénom</label>
+    <input type="text" formControlName="firstName" placeholder="Ada" />
+    <small *ngIf="submitted && form.controls.firstName.invalid">Champ requis</small>
+  </div>
+
+  <div class="field">
+    <label>Nom</label>
+    <input type="text" formControlName="lastName" placeholder="Lovelace" />
+    <small *ngIf="submitted && form.controls.lastName.invalid">Champ requis</small>
+  </div>
+
+  <div class="field">
+    <label>Email</label>
+    <input type="email" formControlName="email" placeholder="ada@dev.io" />
+    <small *ngIf="submitted && form.controls.email.invalid">Email invalide</small>
+  </div>
+
+  <div class="actions">
+    <a routerLink="/users" class="btn ghost">Annuler</a>
+    <button class="btn" type="submit">Enregistrer</button>
+  </div>
+</form>

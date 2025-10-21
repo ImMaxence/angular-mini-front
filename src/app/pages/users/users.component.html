@@ -1,0 +1,33 @@
+<section class="header">
+  <h2>Utilisateurs</h2>
+  <a routerLink="/add" class="btn">+ Ajouter</a>
+</section>
+
+<table class="table" *ngIf="users().length; else empty">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Prénom</th>
+      <th>Nom</th>
+      <th>Email</th>
+      <th style="width:110px">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- *ngFor répète un <tr> par item -->
+    <tr *ngFor="let u of users()">
+      <td>{{ u.id }}</td>
+      <td>{{ u.firstName }}</td>
+      <td>{{ u.lastName }}</td>
+      <td>{{ u.email }}</td>
+      <td>
+        <!-- (click) lie l'événement au handler TS -->
+        <button class="link danger" (click)="remove(u.id)">Supprimer</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #empty>
+  <p>Aucun utilisateur. <a routerLink="/add">Ajoute le premier</a> !</p>
+</ng-template>
